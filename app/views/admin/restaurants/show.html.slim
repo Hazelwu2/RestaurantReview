@@ -1,0 +1,8 @@
+h2 = @restaurant.name
+ul 
+  li 營業時間： #{@restaurant.opening_hours}
+  li 聯絡電話： #{@restaurant.tel}
+  li 餐廳地址： #{@restaurant.address}
+  li 餐廳介紹： #{@restaurant.description}
+
+= link_to "回到餐廳首頁", admin_restaurants_path
