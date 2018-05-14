@@ -1,1 +1,11 @@
 h1 餐廳後台
+
+ul
+  - @restaurants.each do |restaurant|
+  li
+    = restaurant.name
+    = link_to '檢視', admin_restaurant_path(restaurant)
+    = link_to '編輯', edit_admin_restaurant_path(restaurant)
+    = link_to '刪除', admin_restaurant_path(restaurant), method: :delete, data: {confirm: "確定要刪除此筆資料嗎？"}
+
+= link_to '新增餐廳', new_admin_restaurant_path
