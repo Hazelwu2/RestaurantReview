@@ -1,8 +1,8 @@
 h1 餐廳後台
 
 ul
-  - @restaurants.each do |restaurant|
   li
+  - @restaurants.each do |restaurant|
     = restaurant.name
     = link_to '檢視', admin_restaurant_path(restaurant)
     = link_to '編輯', edit_admin_restaurant_path(restaurant)
