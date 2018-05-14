@@ -4,5 +4,8 @@ ul
   li 聯絡電話： #{@restaurant.tel}
   li 餐廳地址： #{@restaurant.address}
   li 餐廳介紹： #{@restaurant.description}
+  li 
+    | 形象圖片
+    = image_tag @restaurant.image, width: '300px' if @restaurant.image?
 
 = link_to "回到餐廳首頁", admin_restaurants_path

@@ -21,3 +21,6 @@
 /yarn-error.log
 
 .byebug_history
+
+# 上傳圖片
+public/uploads
