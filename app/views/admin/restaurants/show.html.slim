@@ -1,11 +1,25 @@
-h2 = @restaurant.name
-ul 
-  li 營業時間： #{@restaurant.opening_hours}
-  li 聯絡電話： #{@restaurant.tel}
-  li 餐廳地址： #{@restaurant.address}
-  li 餐廳介紹： #{@restaurant.description}
-  li 
-    | 形象圖片
-    = image_tag @restaurant.image, width: '300px' if @restaurant.image?
-
-= link_to "回到餐廳首頁", admin_restaurants_path
+.container
+  .row
+    .col-md-12
+      h2 = @restaurant.name
+    .col-md-4
+      = image_tag @restaurant.image, class: "img-responsive center-block"
+      br
+      .well
+        ul.list-unstyled
+          li
+            strong 營業時間 
+            = @restaurant.opening_hours
+          li 
+            strong 聯絡電話 
+            | #{@restaurant.tel}
+          li 
+            strong 餐廳地址 
+            | #{@restaurant.address}
+    .col-md-8.text-center
+      .text-info
+        = simple_format @restaurant.description
+    .clearfix
+    hr
+    .text-center
+      = link_to "回到餐廳首頁", admin_restaurants_path, class: "btn btn-info"

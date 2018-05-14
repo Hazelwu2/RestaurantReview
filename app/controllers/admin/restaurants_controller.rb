@@ -18,11 +18,7 @@ class Admin::RestaurantsController < ApplicationController
     end
   end
 
-  def show
-  end
 
-  def edit
-  end
 
   def update
     if @restaurant.update(restaurant_params)
