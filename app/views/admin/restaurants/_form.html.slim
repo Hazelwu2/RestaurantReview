@@ -1,31 +1,31 @@
 .container
   .row
-    - if @restaurant.errors.any?
-    h4 We have some errors here !
-    ul
+    = if @restaurant.errors.any?
+      h4 We have some errors here !
+      ul
       - @restaurant.errors.full_messages.each do |msg| 
         li= msg
     hr
     .col-md-6
-      = form_for [:admin, @restaurant] do |f|
-        .form-group
-          = f.label :name, "餐廳名稱"
-          = f.text_field :name, class: "form-control"
-        .form-group
-          = f.label :tel, "聯絡電話"
-          = f.text_field :tel, class: "form-control"
-        .form-group 
-          = f.label :address, "餐廳地址"
-          = f.text_field :address, class: "form-control"
-        .form-group
-          = f.label :opening_hours, "營業時間"
-          = f.text_field :opening_hours, class: "form-control"
-        .form-group
-          = f.label :description, "餐廳描述"
-          = f.text_area :description, class: "form-control"
-        .form-group
-          = f.label :image, "形象相片"
-          = image_tag @restaurant.image, width: '300px' if @restaurant.image?
-          = f.file_field :image, class: "form-control"
-        .form-group
-          = f.submit class: "btn btn-info"
+    = form_for [:admin, @restaurant] do |f|
+      .form-group
+        = f.label :name, "餐廳名稱"
+        = f.text_field :name, class: "form-control"
+      .form-group
+        = f.label :tel, "聯絡電話"
+        = f.text_field :tel, class: "form-control"
+      .form-group 
+        = f.label :address, "餐廳地址"
+        = f.text_field :address, class: "form-control"
+      .form-group
+        = f.label :opening_hours, "營業時間"
+        = f.text_field :opening_hours, class: "form-control"
+      .form-group
+        = f.label :description, "餐廳描述"
+        = f.text_area :description, class: "form-control"
+      .form-group
+        = f.label :image, "形象相片"
+        = image_tag @restaurant.image, width: '300px' if @restaurant.image?
+        = f.file_field :image, class: "form-control"
+      .form-group
+        = f.submit class: "btn btn-info"

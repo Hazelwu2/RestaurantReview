@@ -7,6 +7,10 @@ class Admin::RestaurantsController < ApplicationController
     @restaurants = Restaurant.page(params[:page]).per(10)
   end
 
+  def new
+    @restaurant = Restaurant.new
+  end
+
   def create
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
