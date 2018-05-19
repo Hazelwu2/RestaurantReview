@@ -12,6 +12,8 @@
         = f.label :name, "餐廳名稱"
         = f.text_field :name, class: "form-control"
       .form-group
+        = f.collection_select :category_id, Category.all, :id, :name, {prompt: true}, {class: "form-control"}
+      .form-group
         = f.label :tel, "聯絡電話"
         = f.text_field :tel, class: "form-control"
       .form-group 

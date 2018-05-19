@@ -15,7 +15,7 @@ class Admin::RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
       flash[:notice] = "餐廳資料已成功建立"
-      redirect_to admin_restaurants_path
+      redirect_to admin_restaurant_path(@restaurant)
     else
       flash.now[:alert] = "很抱歉，餐廳未成功建立"
       render :new
@@ -43,7 +43,7 @@ class Admin::RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :opening_hours, :tel, :address, :description, :image)
+    params.require(:restaurant).permit(:name, :opening_hours, :tel, :address, :description, :image, :category_id)
   end
 
   def set_restaurant
