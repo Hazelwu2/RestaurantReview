@@ -6,15 +6,21 @@
       |   |  
       =link_to '分類總表', admin_categories_path
   .row
-    .col-md-12.table-striped.table-bordered
-      table
+    .col-md-6.col-offset-3
+      .form-inline
+        = form_for [:admin, @category] do |f|
+          .form-group
+            = f.text_field :name, placeholder: "分類", class: "form-control"
+          = f.submit class: "btn btn-info m-3"
+    .col-md-12
+      table.table-striped.table-bordered.table
         thead
           tr
             th #
             th 分類
         tbody
-          - @categories.each do |category|
+        - @categories.each do |category|
           tr 
-            th scope="row" category.id
-            td category.name
+            th scope="row" #{category.id}
+            td #{category.name}
           
