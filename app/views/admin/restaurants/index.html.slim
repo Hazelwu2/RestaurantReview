@@ -9,12 +9,14 @@
       thead
         tr
           th #
+          th Category
           th Name
           th #
       tbody
       - @restaurants.each do |restaurant|
         tr
           th scope="row" #{restaurant.id} 
+          td = restaurant.category.name
           td #{restaurant.name}
           td 
             = link_to '檢視 |', admin_restaurant_path(restaurant)
