@@ -20,6 +20,7 @@ class Admin::RestaurantsController < ApplicationController
       flash.now[:alert] = "很抱歉，餐廳未成功建立"
       render :new
     end
+
   end
 
 

@@ -4,7 +4,12 @@ class Admin::CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-    @category = Category.new
+
+    if params[:id]
+      @category = Category.find(params[:id])
+    else
+      @category = Category.new
+    end
   end
 
   def create
@@ -16,6 +21,21 @@ class Admin::CategoriesController < ApplicationController
       @categories = Category.all
       render :index
       flash.now[:alert] = "建立分類失敗"
+    end
+  end
+
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    if @category.update(category_params)
+      redirect_to admin_categories_path
+      flash[:notic] = "Category成功更新"
+    else
+      @categories = Category.all
+      render :index
     end
   end
 
