@@ -1,0 +1,20 @@
+.container
+  h1 餐廳分類總表
+  .row
+    .col-md-12
+      =link_to '餐廳總表', admin_restaurants_path
+      |   |  
+      =link_to '分類總表', admin_categories_path
+  .row
+    .col-md-12.table-striped.table-bordered
+      table
+        thead
+          tr
+            th #
+            th 分類
+        tbody
+          - @categories.each do |category|
+          tr 
+            th scope="row" category.id
+            td category.name
+          

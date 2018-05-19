@@ -2,6 +2,12 @@
   h1 餐廳後台
   .row
     .col-md-12
+      div
+        =link_to '餐廳總表', admin_restaurants_path
+        |  |  
+        =link_to '分類總表', admin_categories_path
+  .row
+    .col-md-12
       div 
         = link_to '新增餐廳', new_admin_restaurant_path, class: "btn btn-primary"
     br
