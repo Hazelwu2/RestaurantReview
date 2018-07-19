@@ -1,0 +1,10 @@
+- @restaurants.each do |restaurant|
+  .col-sm-6.col-md-4
+    .restaurant-item
+      = image_tag restaurant.image, class: "img-responsive center-block"
+      .caption
+        h3 = link_to restaurant.name, restaurant_path(restaurant)
+        p.label.label-default = restaurant.category.name
+        p = truncate(restaurant.description, length: 80)
+.text-center
+  = paginate @restaurants

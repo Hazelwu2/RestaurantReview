@@ -1,20 +1,10 @@
-h1 餐廳前台
 .container
   .row
-    ul.nav.nav-pills.nav-pills-center.text-center
+    ul.nav.nav-pills.nav-pills-center
       li.active role="presentation" 
         = link_to "全部餐廳", root_path
       - @categories.each do |category|
         li role="presentation" 
           = link_to category.name, category_path(category)
-  .row
-    .col-sm-6.col-md-4
-    - @restaurants.each do |restaurant|
-      .restaurant-item
-        = image_tag restaurant.try(:image), class: 'img-responsive center-block'
-        .caption
-          h3 = link_to restaurant.name, restaurant_path(restaurant)
-        p.label.label-default = restaurant.category.name
-        p = truncate(restaurant.description, length: 80)
-  .text-center
-    = paginate @restaurants
+          
+    = render partial: "shared/restaurant_list"
