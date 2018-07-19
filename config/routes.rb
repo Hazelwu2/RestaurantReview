@@ -3,12 +3,16 @@ Rails.application.routes.draw do
   root "restaurants#index"
 
   # 前台使用者權限
-  resources :restaurants, only: [:index, :show]
+  resources :restaurants, only: [:index, :show] do
+    resources :comments, only: [:create, :destroy]
+  end
   resources :categories, only: :show
   
   # 後台使用者權限
   namespace :admin do
-    resources :restaurants
+    resources :restaurants do
+      resources :comments
+    end
     resources :categories
     root "restaurants#index"
   end
