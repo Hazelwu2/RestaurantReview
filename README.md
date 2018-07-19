@@ -16,3 +16,8 @@ cd project
 bundle install
 rails s
 ```
+
+## 如何進入後台
+預設Admin
+帳號：test@test.com
+密碼：test.com
