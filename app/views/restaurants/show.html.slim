@@ -1,0 +1,23 @@
+.container
+  .row
+    .col-md-12
+      h1 = @restaurant.name
+      p = @restaurant.category.name
+    .col-md-4
+      = image_tag @restaurant.image, class: 'img-responsive center-block'
+      br
+      .well
+        ul.list-unstyled
+          li
+            strong 營業時間 
+            = @restaurant.opening_hours
+          li
+            strong 聯絡電話 
+            = @restaurant.tel
+          li
+            strong 餐廳地址 
+            = @restaurant.address
+    .col-md-8
+      = simple_format @restaurant.description
+    .clearfix
+    hr
