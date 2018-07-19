@@ -1,6 +1,13 @@
 h1 餐廳前台
 .container
   .row
+    ul.nav.nav-pills.nav-pills-center.text-center
+      li.active role="presentation" 
+        = link_to "全部餐廳", root_path
+      - @categories.each do |category|
+        li role="presentation" 
+          = link_to category.name, category_path(category)
+  .row
     .col-sm-6.col-md-4
     - @restaurants.each do |restaurant|
       .restaurant-item
