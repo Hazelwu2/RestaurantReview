@@ -1,2 +1,13 @@
-
 h1 餐廳前台
+.container
+  .row
+    .col-sm-6.col-md-4
+    - @restaurants.each do |restaurant|
+      .restaurant-item
+        = image_tag restaurant.try(:image), class: 'img-responsive center-block'
+        .caption
+          h3 = link_to restaurant.name, restaurant_path(restaurant)
+        p.label.label-default = restaurant.category.name
+        p = truncate(restaurant.description, length: 80)
+  .text-center
+    = paginate @restaurants
