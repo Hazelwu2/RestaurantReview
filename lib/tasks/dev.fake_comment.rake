@@ -3,7 +3,7 @@ namespace :dev do
     Restaurant.all.each do |restaurant|
       5.times do |i|
         restaurant.comments.create!(
-          content: FFaker::Lorem.sentence,
+          content: FFaker::LoremCN.sentence,
           user: User.all.sample
         )
       end
