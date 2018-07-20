@@ -7,7 +7,7 @@
             = image_tag @user.avatar, class: 'img-responsive img-rounded'
         .col-md-6.col-sm-8.mb-3
           .user-item.text-left
-            h2 = @user.name
+            h2 = @user.user_name
             h5 = @user.email
             p = @user.intro
             - if @user.email == current_user.email

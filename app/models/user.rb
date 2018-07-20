@@ -11,6 +11,6 @@ class User < ApplicationRecord
   end
 
   def user_name
-    self.email.split('@').first
+    self.name ||= self.email.split('@').first
   end
 end
