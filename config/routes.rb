@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
   resources :categories, only: :show
+  resources :users, only: [:show, :edit, :update]
   
   # 後台使用者權限
   namespace :admin do
