@@ -10,10 +10,15 @@
 4. 使用者可以評論該餐廳的評價，後台Admin可以刪除任何人的評論
 
 ## 如何使用
+安裝相關Gem套件，建立假資料：餐廳、使用者、評論
+
 ```
 git clone https://github.com/Hazelwu2/RestaurantReview.git
 cd project
 bundle install
+rails dev:fake_restaurant
+rails dev:fake_user
+rails dev:fake_comment 
 rails db:seed
 rails s
 ```
