@@ -1,0 +1,15 @@
+= form_for @user do |f|
+  .form-group
+    = f.label :name, "暱稱"
+    = f.text_field :name, class: 'form-control', placeholder: "王小明"
+  .form-group
+    = f.label :intro, "自我介紹"
+    = f.text_field :intro, class: 'form-control', placeholder: '身為小明，當然也是一位美食愛好者'
+  .form-group
+    = f.label :avatar, "大頭貼上傳"
+    = image_tag @user.avatar, class: 'avatar mb-3', width: '300px' if @user.avatar?
+    = f.file_field :avatar, class: 'form-control'
+    p.help-block 建議上傳圖片尺寸為：300x300
+  .form-group
+    = f.submit '更新資料', class: 'btn btn-info'
+    = link_to '取消', user_path(@user), class: 'btn btn-default'

@@ -1,14 +1,19 @@
 class UsersController < ApplicationController
-  before_action :set_user
+  before_action :set_user, only: [:show, :edit, :update]
 
   def show
   end
 
   def edit
-    
+    unless @user == current_user
+      redirect_to user_path(@user)
+    end
   end
 
   def update
+    @user.update(user_params)
+    flash[:notice] = "成功更新個人資料"
+    redirect_to user_path(@user)
   end
 
   private

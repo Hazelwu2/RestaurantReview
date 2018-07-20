@@ -22,8 +22,6 @@ class Admin::RestaurantsController < ApplicationController
 
   end
 
-
-
   def update
     if @restaurant.update(restaurant_params)
       flash[:notice] = "餐廳資料成功更新"
