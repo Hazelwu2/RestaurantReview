@@ -21,3 +21,9 @@
       = simple_format @restaurant.description
     .clearfix
     hr
+    = form_for [@restaurant, @comment] do |f|
+      .form-group
+        = f.text_area :content, placeholder: '吃過這間餐廳嗎？留下你的評價讓大家知道吧', class: 'form-control'
+      .form-group
+        = f.submit class: 'btn btn-info'
+        = f.button '取消', type: :reset, class: 'btn btn-default'
