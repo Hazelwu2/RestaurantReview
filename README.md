@@ -1,6 +1,7 @@
-# 餐廳評論網
-使用 Ruby 2.4.1 版本
-[Demo網址](https://restaurant-forum-hazel-wu.herokuapp.com)
+# 餐廳評論網 | Restaurant Review Website
+- Use Ruby 2.4.1 version
+- [Demo](https://restaurant-forum-hazel-wu.herokuapp.com)
+
 ## 功能
 
 1. 分為前後台
@@ -13,6 +14,7 @@
 git clone https://github.com/Hazelwu2/RestaurantReview.git
 cd project
 bundle install
+rails db:seed
 rails s
 ```
 
