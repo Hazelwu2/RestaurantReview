@@ -19,7 +19,12 @@
             = @restaurant.address
     .col-md-8
       = simple_format @restaurant.description
-    .clearfix
+    .col-md-12
+      - @restaurant.comments.each do |comment|
+        h4 = comment.user.email.split("@").first
+        p = simple_format comment.content
+        p.text-muted
+          em = time_ago_in_words(comment.created_at) 
     hr
     = form_for [@restaurant, @comment] do |f|
       .form-group
