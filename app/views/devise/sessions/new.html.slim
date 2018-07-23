@@ -1,0 +1,24 @@
+.container
+  .row
+    h4.main-title.text-center 
+      span.fa.fa-sign-in-alt aria-hidden="true"
+      |   登入
+    .col-md-8.col-md-offset-2
+      .login-container
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| 
+          .input-wrapper
+            span.fa.fa-user aria-hidden="true"
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "帳號"
+
+          .input-wrapper
+            span.fa.fa-lock aria-hidden="true"
+            = f.password_field :password, autocomplete: "off", placeholder: "密碼"
+
+            / # 記住我的資訊
+            / - if devise_mapping.rememberable?
+              = f.check_box :remember_me 
+              = f.label :remember_me
+          .input-wrapper
+            = f.button "立即登入", class: 'btn btn-login'
+
+        = render "devise/shared/forgot_sigin" 

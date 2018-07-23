@@ -1,0 +1,18 @@
+.container
+  .row
+    h4.main-title.text-center 
+      span.fa.fa-sign-in-alt aria-hidden="true"
+      |   找回密碼
+    .col-md-8.col-md-offset-2
+      .login-container
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+          = devise_error_messages!
+
+          .input-wrapper
+            span.fa.fa-user aria-hidden="true"
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: '信箱'
+          .input-wrapper
+            span.fa.fa-envelope-o aria-hidden="true"
+            = f.button "寄送驗證連結", class: 'btn btn-login'
+            
+        = render "devise/shared/forgot_sigin"

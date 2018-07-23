@@ -32,8 +32,8 @@ gem 'kaminari'
 # 樣式
 gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
+gem 'font-awesome-sass', '~> 5.0.13'
 gem 'jquery-rails'
-
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
