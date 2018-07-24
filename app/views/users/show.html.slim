@@ -13,3 +13,16 @@
             - if @user.email == current_user.email
               = link_to '編輯檔案' , edit_user_path(@user), class: 'btn btn-info'
         .clearfix
+        .user-comments
+          .panel.panel-default
+            .panel-heading
+              h3.panel-title 
+                strong = @commented_restaurants.count 
+                |   間已評論餐廳
+            .panel-body
+              - @commented_restaurants.each do |restaurant|
+                = link_to restaurant_path(restaurant) do
+                  .user-restaurant
+                    div
+                      = image_tag restaurant.image, class: 'img-responsive img-rounded'
+                    h5 = restaurant.name
