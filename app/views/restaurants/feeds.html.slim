@@ -1,0 +1,36 @@
+.container
+  .row
+    div
+      ul.nav.nav-tabs
+        li role="presentation"
+          = link_to '首頁', root_path
+        li role="presentation" class="active"
+          = link_to '最新動態', feeds_restaurants_path
+  .container
+    .row
+      .col-md-10.col-offset-1
+        h1 餐廳最新動態
+        hr
+        .col-md-6
+          .panel.panel-default
+            .panel-heading 最新餐廳
+            .panel-body
+              - @recent_restaurants.each do |restaurant|
+                div
+                  h4
+                    = link_to restaurant.name, restaurant_path(restaurant) 
+                    small.label.label-info
+                      = restaurant.category.name
+                  p = truncate(restaurant.description, length: 80)
+                  hr
+        .col-md-6
+          .panel.panel-default
+            .panel-heading 最新評論
+            .panel-body
+              - @recent_comments.each do |comment|
+                div
+                  h4 = link_to comment.restaurant.name, restaurant_path(comment.restaurant)
+                  p = truncate(comment.content, length: 80)
+                  small 
+                    | - By 
+                    = link_to comment.user.name, user_path(comment.user)
