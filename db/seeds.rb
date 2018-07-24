@@ -14,5 +14,5 @@ end
 
 puts "Category Created!"
 
-User.create(email: "example@gmail.com", password: "123456", role: "admin")
-puts "User already Created!"
+# User.create(email: "test@test.com", password: "test.com", role: "admin")
+# puts "User already Created!"

@@ -22,6 +22,7 @@ gem 'devise'
 
 # 圖片上傳
 gem 'carrierwave'
+gem 'fog-aws'
 
 # 假資料
 gem 'ffaker'
