@@ -5,7 +5,17 @@ Rails.application.routes.draw do
   # 前台使用者權限
   resources :restaurants, only: [:index, :show] do
     resources :comments, only: [:create, :destroy]
+    collection do 
+      # restaurants/feeds
+      get :feeds # 顯示所有餐廳最新動態
+    end
+
+    member do
+      # restaurants/:id/dashboard
+      get :dashboard # 顯示個別餐廳 Dashboard
+    end
   end
+
   resources :categories, only: :show
   resources :users, only: [:show, :edit, :update]
   
