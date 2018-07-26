@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     member do
       # restaurants/:id/dashboard
       get :dashboard # 顯示個別餐廳 Dashboard
+      post :favorite # 收藏餐廳
+      post :unfavorite # 取消收藏餐廳
     end
   end
 
