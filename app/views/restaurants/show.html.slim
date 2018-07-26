@@ -20,8 +20,7 @@
     .col-md-8
       = simple_format @restaurant.description
       = link_to '餐廳最新優惠', dashboard_restaurant_path(@restaurant), class: 'btn btn-info'
-      = link_to '收藏餐廳', favorite_restaurant_path(@restaurant), class: 'btn btn-danger', method: :post
-      = link_to '取消收藏餐廳', unfavorite_restaurant_path(@restaurant), class: 'btn btn-info', method: :post
+      = render partial: "shared/favorite", locals: { restaurant: @restaurant }
     .col-md-12.mb-3
       - @restaurant.comments.each do |comment|
         h4 = comment.user.user_name

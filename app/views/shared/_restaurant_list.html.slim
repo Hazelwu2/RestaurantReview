@@ -6,5 +6,6 @@
         h3 = link_to restaurant.name, restaurant_path(restaurant)
         p.label.label-default = restaurant.category.name
         p = truncate(restaurant.description, length: 80)
+        = render partial: "shared/favorite", locals: { restaurant: restaurant }
 .text-center
   = paginate @restaurants

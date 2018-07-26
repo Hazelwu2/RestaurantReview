@@ -1,0 +1,4 @@
+      - if restaurant.is_favorited?(current_user)
+        = link_to '取消追蹤餐廳', unfavorite_restaurant_path(restaurant), class: 'btn btn-info', method: :post
+      - else
+        = link_to '收藏餐廳', favorite_restaurant_path(restaurant), class: 'btn btn-danger', method: :post
