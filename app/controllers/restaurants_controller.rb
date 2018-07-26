@@ -16,7 +16,24 @@ class RestaurantsController < ApplicationController
     @recent_comments = Comment.order(created_at: :desc).limit(10)
   end
 
+  # 個別餐廳 最新優惠 / 活動
   def dashboard
     @restaurant = Restaurant.find(params[:id])
+  end
+
+  # 收藏餐廳
+  def favorite
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.favorites.create!(user: current_user)
+    redirect_back(fallback_location: root_path)
+    flash.now[:notice] = "收藏餐廳成功"
+  end
+
+  # 取消收藏餐廳
+  def unfavorite
+    @restaurant = Restaurant.find(params[:id])
+    favorites = Favorite.where(restaurant: @restaurant, user: current_user)
+    favorites.destroy_all
+    redirect_back(fallback_location: root_path)
   end
 end
